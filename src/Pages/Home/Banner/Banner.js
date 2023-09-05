@@ -6,20 +6,22 @@ const Banner = () => {
     const slides = [
         {
             imageUrl: 'https://www.kitegamesstudio.com/wp-content/uploads/2022/07/amtv.png',
-            caption: 'First slide label\nSome representative placeholder content for the first slide.',
+            imUrl: 'http://www.kitegamesstudio.com/wp-content/themes/kitegames/img/play-store.png',
+            caption: 'Blur Photo Editor & Portrait',
         },
         {
             imageUrl: 'https://www.kitegamesstudio.com/wp-content/uploads/2022/07/color_pop.png',
-            caption: 'Second slide label\nSome representative placeholder content for the second slide.',
+            imUrl: 'http://www.kitegamesstudio.com/wp-content/themes/kitegames/img/play-store.png',
+            caption: 'Color Pop Effects',
         },
         {
             imageUrl: 'https://www.kitegamesstudio.com/wp-content/uploads/2022/07/slideshow-1.png',
-            caption: 'Third slide label\nSome representative placeholder content for the third slide.',
+            imUrl: 'http://www.kitegamesstudio.com/wp-content/themes/kitegames/img/play-store.png',
+            caption: 'Add Music To Video & Editor',
         },
     ];
 
     const [activeIndex, setActiveIndex] = useState(0);
-
 
     // Function to increment the active slide index
     const nextSlide = () => {
@@ -32,31 +34,31 @@ const Banner = () => {
         return () => clearInterval(interval);
     }, []);
 
+
     return (
-        <div className="hero ">
-            <img src="https://www.kitegamesstudio.com/wp-content/uploads/2017/08/Slider2.jpg" alt="" />
-            <div className="">
-                <div className="relative">
-                    {/* Carousel items */}
-                    <div className="relative w-full overflow-hidden">
-                        {slides.map((slide, index) => (
-                            <div
-                                key={index}
-                                className={`absolute left-0 w-full h-full transform transition-transform duration-1000 ${index === activeIndex ? 'translate-x-0' : 'translate-x-full'
-                                    }`}
-                            >
-                                <img src={slide.imageUrl} className="block w-full h-full object-cover" alt={`Slide ${index + 1}`} />
-                                <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-60 p-4 text-white">
-                                    <h5 className="text-xl">{slide.caption.split('\n')[0]}</h5>
-                                    <p>{slide.caption.split('\n')[1]}</p>
+        <div className="hero relative">
+            <img src="https://www.kitegamesstudio.com/wp-content/uploads/2017/08/Slider2.jpg" alt="" className="w-full h-auto" />
+            <div className="absolute  inset-y-0 right-0 left-[350px] mt-32  flex justify-around items-center">
+                <div className="relative w-2/3 h-2/6 overflow-hidden">
+                    {slides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`absolute left-0 w-full h-full transform transition-transform duration-1000 ${index === activeIndex ? 'translate-x-0' : 'translate-x-full'
+                                }`}
+                        >
+                            <img src={slide.imageUrl} className="block w-[113.571px] h-[113.571px] object-cover" alt={`Slide ${index + 1}`} />
+                            <div className="absolute inset-x-0  p-4 text-[#4a4747]">
+                                <h5 className=" text-7xl font-[5]">{slide.caption.split('\n')[0]}</h5>
+                                <div className=" mt-6 ml-36">
+                                    <img src={slide.imUrl} className="block  h-full object-cover" alt={`Slide ${index + 1}`} />
                                 </div>
+
+                                {/* <img src={slide.imUrl.split('\n')[1]} alt='' {`Slide ${index + 1}`} /> */}
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
-
             </div>
-
         </div>
     );
 };
