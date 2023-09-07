@@ -4,6 +4,7 @@ import React from 'react';
 const InfoCards = () => {
 
 
+
     return (
         <div className='mt-32 w-[1170px] mx-auto'>
             <div className=" relative">
